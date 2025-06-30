@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vāstrāmāya - Traditional Clothing & Jewelry</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff8f0;
+    }
+    header {
+      background: #7b3f00;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img { height: 40px; }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section { padding: 20px; }
+    h2 { color: #7b3f00; }
+    .products {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .product {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 150px;
+      text-align: center;
+      padding: 10px;
+    }
+    .product img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 8px;
+      background: #7b3f00;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+    form input, form textarea, form select {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+    }
+    footer {
+      background: #eee0d5;
+      padding: 20px;
+      text-align: center;
+    }
+    footer a { color: #7b3f00; font-weight: bold; }
+    .connect { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://via.placeholder.com/100x40?text=Vāstrāmāya" alt="Logo" />
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#men">Men</a>
+    <a href="#women">Women</a>
+    <a href="#children">Children</a>
+    <a href="#cart">Cart</a>
+    <a href="#login">Login</a>
+    <a href="#admin">Admin</a>
+  </nav>
+</header>
+
+<section id="home">
+  <img src="https://images.unsplash.com/photo-1602810317593-d08d32dd338d?fit=crop&w=900&q=80" alt="Background" style="width:100%; border-radius:10px;">
+  <h1>Welcome to Vāstrāmāya</h1>
+  <p>Traditional wear, festive vibes & handmade jewelry — for Men, Women & Children.</p>
+</section>
+
+<section id="men">
+  <h2>Men's Wear</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1623826073682-fd35d5bb4dc1?fit=crop&w=300&q=80" />
+      <h4>Royal Blue Kurta</h4>
+      <p>₹1,499</p>
+      <button onclick="addToCart('Royal Blue Kurta', 1499)">Buy</button>
+    </div>
+  </div>
+</section>
+
+<section id="women">
+  <h2>Women's Wear & Jewelry</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1542060748-10c28b62716d?fit=crop&w=300&q=80" />
+      <h4>Banarasi Saree</h4>
+      <p>₹2,499</p>
+      <button onclick="addToCart('Banarasi Saree', 2499)">Buy</button>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1604139241114-6f95f96ca8b7?fit=crop&w=300&q=80" />
+      <h4>Kundan Necklace</h4>
+      <p>₹999</p>
+      <button onclick="addToCart('Kundan Necklace', 999)">Buy</button>
+    </div>
+  </div>
+</section>
+
+<section id="children">
+  <h2>Children's Wear</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1608589914350-38786f0f27f9?fit=crop&w=300&q=80" />
+      <h4>Festive Kidswear</h4>
+      <p>₹799</p>
+      <button onclick="addToCart('Festive Kidswear', 799)">Buy</button>
+    </div>
+  </div>
+</section>
+
+<section id="cart">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <form onsubmit="submitOrder(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Your Address" required></textarea>
+    <button type="submit">Place Order</button>
+  </form>
+</section>
+
+<section id="login">
+  <h2>Login with Gmail</h2>
+  <button onclick="gmailLogin()">Sign In</button>
+</section>
+
+<section id="admin">
+  <h2>Admin Panel (Private)</h2>
+  <form onsubmit="event.preventDefault(); alert('Product uploaded!');">
+    <input type="text" placeholder="Product Name" required>
+    <input type="number" placeholder="Price" required>
+    <input type="url" placeholder="Image URL" required>
+    <select required>
+      <option>Men</option>
+      <option>Women</option>
+      <option>Children</option>
+    </select>
+    <button type="submit">Upload</button>
+  </form>
+</section>
+
+<footer>
+  <div class="connect">
+    <h3>Connect With Us</h3>
+    <p><a href="https://www.instagram.com/vastramayatraditions">Instagram</a></p>
+    <p><a href="https://facebook.com/share/16eXrSCxMW">Facebook</a></p>
+    <p><a href="https://youtube.com/@vastramaya-traditions">YouTube</a></p>
+  </div>
+  <p>24/7 Customer Service | Non-returnable & Non-refundable</p>
+  <p>Contact: 9409379636</p>
+</footer>
+
+<script>
+  let cart = [];
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    alert(`${name} added to cart.`);
+    renderCart();
+  }
+
+  function renderCart() {
+    const cartDiv = document.getElementById('cart-items');
+    cartDiv.innerHTML = cart.map(item => `<p>${item.name} - ₹${item.price}</p>`).join('');
+  }
+
+  function submitOrder(e) {
+    e.preventDefault();
+    alert('Order placed successfully! Our team will contact you shortly.');
+    cart = [];
+    renderCart();
+  }
+
+  function gmailLogin() {
+    alert('Gmail login coming soon (auto system).');
+  }
+</script>
+
+</body>
+</html>
